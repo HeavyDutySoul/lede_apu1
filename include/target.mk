@@ -158,6 +158,9 @@ ifeq ($(DUMP),1)
   BuildTarget=$(BuildTargets/DumpCurrent)
 
   CPU_CFLAGS = -Os -pipe
+  ifneq ($(findstring APU,$(BOARDNAME)),)
+    CPU_CFLAGS += -march=btver1 -mtune=btver1
+  endif
   ifneq ($(findstring mips,$(ARCH)),)
     ifneq ($(findstring mips64,$(ARCH)),)
       CPU_TYPE ?= mips64
