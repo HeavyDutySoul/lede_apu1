@@ -1,0 +1,10 @@
+config GPIO_FCH
+	tristate "AMD A45/A50M/A55E Fusion Controller Hub GPIO"
+	depends on PCI && X86
+	help
+	  GPIO interface for AMD A45/A50M/A55E Fusion Controller Hub.
+	  Available GPIOs are 0-67, 128-150, 160-228.
+
+	  Part of GPIOs is usually occupied by BIOS for it's internal needs, so
+	  use them with care. For instance, PC Engines APU board users
+	  should only use GPIO 187 (in), 189 (out), 190 (out), 191 (out).

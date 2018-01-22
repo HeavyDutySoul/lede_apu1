@@ -1,0 +1,11 @@
+config LEDS_APU
+	tristate "PC Engines APU GPIO-based LED Driver"
+	depends on LEDS_CLASS
+	depends on GPIOLIB
+	select GPIO_FCH
+	select LEDS_GPIO
+	help
+	  This option sets up LEDs using GPIO control on PC Engines APU board.
+
+	  Note: You must still enable the drivers for GPIO and LED support
+	  (GPIO_FCH & LEDS_GPIO) to actually use the LEDs
